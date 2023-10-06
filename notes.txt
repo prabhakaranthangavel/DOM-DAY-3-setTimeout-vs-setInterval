@@ -1,0 +1,192 @@
+Contents:
+
+1.Window vs document
+
+2.prompt & alert
+
+3.setTimeout vs setInterval
+
+4.setTimeout & setInterval : Real Time Example
+
+*************************************************************************************************************************
+
+1.Window vs document
+
+===>It is a global object.
+
+===>There are countless properties inside the window itself, for example console, alert, cachememory, clearTimeout, clearInterval, document and etc.,,
+    window க்குள் தான் எண்ணற்ற properties கள் இருக்கும்.எடுத்துக்காட்டாக console, alert, cachememory, clearTimeout, clearInterval, document and etc.,, போன்றவற்றை கூறலாம்.
+
+===>A document can be contained within a window.
+    ஒரு documnet ஆனது ஒரு window க்குள் தான் இருக்கும்.
+
+===>We don't often use window. We use document instead.
+    window ஐ பெரும்பாலும் பயன்படுத்தமாட்டோம்.அதற்கு பதிலாகத்தான் document ஐ பயன்படுத்துகிறோம்.
+
+===>எடுத்துக்காட்டாக index.html ல் எதுவும் கொடுக்காமல் LiveServer ---> Inspect ---> console ---> window.console.log("Hi") என்று கொடுத்தாலும் output வரும்.
+
+*************************************************************************************************************************
+
+2.prompt & alert
+
+alert 
+
+===>alert is used for alert notifications.
+    alert notifications காகப் பயன்படுவதுதான் alert ஆகும்.
+
+===>For example "Fill the form" & Camera notifications & allow & ok & 50% data usage & warning etc. we will use alert method.
+    எடுத்துக்காட்டாக "Fill the form" & Camera notifications & allow & ok & 50% data usage & warning போன்றவை alert method ஐ பயன்படுத்தி இருப்போம்.
+
+
+prompt
+
+===>Let's get the input from the user and use it. This is why prompt is used.
+    user ரிடம் input ஐ வாங்கி பயன்படுத்துவோம்.இதற்காக தான் prompt பயன்படுத்தப்படுகிறது.
+
+===>All the data that can come from the prompt is or will be a string.
+    prompt ல் இருந்து வரக்கூடிய data ஆனது எல்லாமே string ஆகத்தான் வரும் அல்லது இருக்கும்.
+
+*************************************************************************************************************************
+
+3.setTimeout vs setInterval
+
+===>setTimeout is to execute only once more than specified milliseconds.
+    குறிப்பிட்ட milliseconds க்கு மேல் ஒரே ஒரு முறை மட்டும் excute செய்து கொடுப்பது setTimeout ஆகும்.
+
+===>It executes only once.
+    இது ஒரே ஒரு தடவை மட்டுமே excute ஆகும்.
+
+===>Enter functionname & milliseconds in setTimeout.
+    setTimeout க்குள் functionname & milliseconds கொடுக்க வேண்டும்.
+
+===>An id will come with the output. This id number can be used to stop the function.
+    output உடன் ஒரு id வரும்.அந்த function ஐ நிறுத்த இந்த id number ஐ பயன்படுத்தலாம்.
+
+===>clearTimeout(idnumber) will stop.
+    clearTimeout(idnumber) என்று கொடுத்தால் நிற்கும்.
+
+===>Example:
+
+    function helloAll(){
+      console.log("PRABHAKARAN")
+    }
+    setTimeout(helloAll,3000)
+    clearTimeout()
+
+    o/p: after 3000 m/s only once print the name
+    PRABHAKARAN
+
+    o/p:clearTimeout(1)    
+    undefined     becoz function is stopped
+
+    (given the inputs are console part)
+
+
+setInterval:
+
+===>We will give We call setInterval to execute every specified milliseconds.
+    நாம் கொடுக்கும் ஒவ்வொரு குறிப்பிட்ட milliseconds க்கு ஒவ்வொரு முறையும் excute ஆகிக் கொண்டே இருப்பதுதான் setInterval என்று அழைக்கிறோம்.
+
+===>It will print "N" times.
+    இது "N" times, print ஆகிக்கொண்டே இருக்கும்.
+
+===>Enter functionname & milliseconds in setInterval.
+    setInterval க்குள் functionname & milliseconds கொடுக்க வேண்டும்.
+    
+===>An id will come with the output. This id number can be used to stop the function.
+    output உடன் ஒரு id வரும்.அந்த function ஐ நிறுத்த இந்த id number ஐ பயன்படுத்தலாம்.
+
+===>clearInterval(idnumber) will stop.
+    clearInterval(idnumber) என்று கொடுத்தால் நிற்கும்.
+
+===>Example:
+
+    function name(){
+      console.log("PRABHAKARAN")
+    }
+    setInterval(name,3000)
+    clearInterval()
+
+    o/p: ஒவ்வொரு 3000 milliseconds க்கு ஒவ்வொரு முறையும் PRABHAKARAN என்று excute or print or count ஆகிக்கொண்டே இருக்கும்.
+
+    o/p:clearInterval(1)    
+    undefined     எத்தனை முறை name, print ஆகி உள்ளதோ அதனுடன் நின்றுவிடும் becoz function is stopped
+
+    (given the inputs are console part)
+
+*************************************************************************************************************************
+
+4.setTimeout & setInterval
+
+===>Real Time Example: 
+
+    HTML Part: 
+    <div class="h-text">
+    <div class="h-animate">
+        <span class="text first-text">I'm a&nbsp;</span>
+        <span class="text sec-text" id="text1">Web Developer</span>
+    </div>
+    </div>  
+
+
+    script.js Part: 
+    const text = document.querySelector(".sec-text")
+    const textload =() =>{
+        setTimeout(()=>{
+            text.textContent = "Developer"
+        },0)
+        setTimeout(()=>{
+            text.textContent = "Front-End Developer"
+        },6000)
+        setTimeout(()=>{
+            text.textContent = "Back-End Developer"
+        },12000)
+    }
+    textload();
+    setInterval(textload,18000);
+
+
+    CSS Part:
+
+    body{
+        background-color: black;
+    } 
+
+    .h-text{
+        padding-top: 200px;
+        margin-left: 60px;
+        color: aqua;
+        font-size: 40px; 
+    }
+
+    .h-animate.text{
+        position: relative;
+        font-size: 100px;
+        font-weight: 600;
+    }
+    
+    .h-animate.text.first-text{
+        color: #fff;
+    }
+    
+    .text.sec-text::before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-left: 3px solid chartreuse;
+       animation: animate 4s steps(12) infinite;
+    } 
+
+    @keyframes animate{
+        40%, 60%{
+            left: calc(100% + 4px);
+        }
+        100%{
+            left: 0%;
+        }
+    }
+
+*************************************************************************************************************************

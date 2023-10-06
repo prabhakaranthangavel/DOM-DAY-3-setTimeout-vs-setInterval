@@ -1,0 +1,49 @@
+/* //! setTimeout & setInterval */
+
+/* //! ===>Real Time Example:  */
+
+/* //! CSS Part:  */
+
+body{
+    background-color: black;
+
+} 
+.h-text{
+    padding-top: 200px;
+    margin-left: 60px;
+    color: aqua;
+    font-size: 40px;
+}
+
+.h-animate.text{
+    position: relative;
+    font-size: 100px;
+    font-weight: 600;
+
+}
+
+.h-animate.text.first-text{
+    color: #fff;
+
+}
+.text.sec-text::before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-left: 3px solid chartreuse;
+    animation: animate 4s steps(12) infinite;
+} 
+
+@keyframes animate{
+    40%, 60%{
+        left: calc(100% + 4px);
+    }
+    100%{
+        left: 0%;
+    }
+}
+
+/* ************************************************************************************************************************* */
